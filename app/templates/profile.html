@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-md-start py-3">
+    <img src="{{ user.get_avatar(256) }}" height="auto" width="256">
+    <div>
+        <div class="d-flex justify-content-md-start ">
+            <div>
+            <h1 class="px-3">{{ user.username }}</h1>
+            <p class="px-3">{{ user.email }}</p>
+            </div>
+        <div>
+            <a href="/{{ user.username }}/edit_profile" role="button" ><i class="fas fa-pen-square"></i></a>
+        </div>
+        </div>
+        <small class="px-3">
+            {% if user.is_active %}
+                В сети
+            {% else %}
+                Был в сети: {{ user.last_seen.strftime('%Y.%m.%d %H:%M:%S') }}
+            {% endif %}
+        </small>
+    </div>
+
+
+</div>
+<div>
+    <a href="/{{ user.username }}/load_photo" role="button" class="btn btn-sm btn-secondary">Загрузить аватар</a>
+
+</div>
+{% endblock %}

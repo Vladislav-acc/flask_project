@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Загрузка файла{% endblock %}
+
+{% block content %}
+  <form enctype="multipart/form-data" method="POST">
+   <p>Загрузите аватар</p>
+   <p><input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg">
+       <button type="submit" class="btn btn-primary">Загрузить</button></p>
+  </form>
+    <a href="/{{user.username}}/profile" role="button" class="btn btn-secondary">Назад</a>
+{% endblock %}
+
+</html>

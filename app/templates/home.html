@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+{% if user.admin %}
+<div  align="center">
+    <a href="/create_post"><button type="button" class="btn btn-primary btn-lg">Создать пост</button></a>
+</div>
+{% endif %}
+<br/>
+<div class="container md-3">
+{% for post in posts.items %}
+    <a name="{{post.id}}"></a>
+    <div class="card border-dark">
+        <div class="card-header d-flex justify-content-between align-item-center">
+            <div>
+            <img src="{{ post.user.get_avatar(30) }}" width="auto" height="30">
+            <a href="/{{post.user.username}}/profile" class="btn" role="button">{{post.user.username}}</a>
+            </div>
+            <div class="d-flex justify-content-end align-item-center">
+                <span id="likes-count-{{post.id}}">{{ post.likes|length }}</span>
+                {% if user.id in post.likes|map(attribute="author")|list %}
+                <i class="fas fa-thumbs-up"
+                   id="like-button-{{post.id}}"
+                   onclick="like({{post.id}})"></i>
+                {% else %}
+                <i class="far fa-thumbs-up"
+                   id="like-button-{{post.id}}"
+                   onclick="like({{post.id}})"></i>
+                {% endif %}
+                {% if user.id == post.author %}
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-primary btn-close" data-bs-toggle="dropdown">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/delete_post/{{post.id}}" class="dropdown-item">Удалить</a></li>
+                    </ul>
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+        <div class="card-body" onclick='location.href="/post/{{post.id}}";'>
+            <div class="card-text">{{ post.text }}</div>
+            <br/>
+            <p class="card-text">
+                {% if post.comments|length > 0 %}
+                    <button data-bs-toggle="collapse" role="button"
+                       class="btn btn-sm btn-outline-primary" disabled>
+                        <small id="comments-button-{{post.id}}"
+                                >Комментарии </small>
+                        <small id="comments-count-{{post.id}}">({{ post.comments|length }})</small>
+                    </button>
+                {% else %}
+                    <small class="text-muted">Нет комментариев</small>
+                {% endif %}
+            </p>
+            <div class="collapse" id="comments-{{post.id}}">
+                <div class="card">
+                    <div class="card-body" id="comments-expanded-{{post.id}}">
+                        {% for comment in post.comments %}
+
+                        <div class="d-flex justify-content-between align-items-top">
+                            <div class="w-75">
+                                    <img src="{{ comment.user.get_avatar(20) }}" width="auto" height="20">
+                                    <a href="/{{ comment.user.username }}/profile" class="py-0 px-0">{{ comment.user.username }}</a>
+                                : {{ comment.text }}
+                            </div>
+                            <div align="right">
+                                <small class="text-muted">{{ local_time(comment.created_date) }}</small>
+                                {% if comment.author == user.id or post.author == user.id %}
+                                    <div class="btn-group">
+                                        <button type="button"
+                                                class="btn btn-sm btn-primary btn-close"
+                                                data-bs-toggle="dropdown">
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/delete_comment/{{comment.id}}" class="dropdown-item">Удалить</a></li>
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer text-muted">
+            {{ local_time(post.created_date) }}
+        </div>
+    </div>
+    <br/>
+{% endfor %}
+    <nav aria-label="...">
+        <ul class="pagination justify-content-center align-item-center">
+            <li class="page-item previous{% if not prev_url %} disabled{% endif %} nav-item nav-link">
+                <a class="page-link" href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> Назад
+                </a>
+            </li>
+            {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if page_num %}
+                    {% if posts.page == page_num %}
+                        <li class="mx-1 "><a type="button" class="btn btn-sm btn-primary"
+                                             href=" {{ url_for('views.home', page=page_num) }}">{{ page_num }}</a></li>
+                    {% else %}
+                        <li class="mx-1 "><a type="button" class="btn btn-sm btn-outline-primary"
+                                             href=" {{ url_for('views.home', page=page_num) }}">{{ page_num }}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li>...</li>
+                {% endif %}
+            {% endfor %}
+            <li class="page-item next{% if not next_url %} disabled{% endif %} nav-item nav-link">
+                <a class="page-link" href="{{ next_url or '#' }}">
+                    Далее <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}

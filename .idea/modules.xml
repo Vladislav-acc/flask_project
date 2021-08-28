@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../flask_blog/.idea/flask_blog.iml" filepath="$PROJECT_DIR$/../flask_blog/.idea/flask_blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/flask_project.iml" filepath="$PROJECT_DIR$/.idea/flask_project.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/microblog/.idea/microblog.iml" filepath="$USER_HOME$/PycharmProjects/microblog/.idea/microblog.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/webtraining/.idea/webtraining.iml" filepath="$USER_HOME$/PycharmProjects/webtraining/.idea/webtraining.iml" />
+    </modules>
+  </component>
+</project>

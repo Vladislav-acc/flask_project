@@ -43,7 +43,7 @@ def create_app():
         def local_time(utc_time):
             local_tz = get_localzone()
             local_dt = utc_time.replace(tzinfo=pytz.utc).astimezone(local_tz)
-            return datetime.strftime(local_dt, '%d.%m.%y %H:%M:%S')
+            return datetime.strftime(local_dt, '%d.%m.%y %H:%M')
 
         return dict(local_time=local_time)
 

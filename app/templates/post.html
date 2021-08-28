@@ -3,7 +3,7 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-<div class="container md-3">
+<div class="container my-2 for-post">
 
     <div class="card border-dark">
         <div class="card-header d-flex justify-content-between align-item-center">
@@ -11,15 +11,17 @@
             <img src="{{ post.user.get_avatar(30) }}" width="auto" height="30">
             <a href="/{{post.user.username}}/profile" class="btn" role="btn">{{post.user.username}}</a>
             </div>
-            <div class="d-flex justify-content-end align-item-center">
+            <div class="d-flex justify-content-end align-item-center my-2">
                 <span id="likes-count-{{post.id}}">{{ post.likes|length }}</span>
                 {% if user.id in post.likes|map(attribute="author")|list %}
                 <i class="fas fa-thumbs-up"
                    id="like-button-{{post.id}}"
+                   role="button"
                    onclick="like({{post.id}})"></i>
                 {% else %}
                 <i class="far fa-thumbs-up"
                    id="like-button-{{post.id}}"
+                   role="button"
                    onclick="like({{post.id}})"></i>
                 {% endif %}
                 {% if user.id == post.author %}
@@ -55,16 +57,16 @@
             <div class="collapse" id="comments-{{post.id}}">
                 <div class="card">
                     <div class="card-body" id="comments-expanded-{{post.id}}">
-                        {% for comment in post.comments %}
+                        {% for comment in post.comments|reverse %}
 
                         <div class="d-flex justify-content-between align-items-top">
-                            <div class="w-75">
+                            <div style="width: 90%;">
                                     <img src="{{ comment.user.get_avatar(20) }}" width="auto" height="20">
                                     <a href="/{{ comment.user.username }}/profile" class="py-0 px-0">{{ comment.user.username }}</a>
                                 : {{ comment.text }}
                             </div>
                             <div align="right">
-                                <small class="text-muted">{{ local_time(comment.created_date) }}</small>
+
                                 {% if comment.author == user.id or post.author == user.id %}
                                     <div class="btn-group">
                                         <button type="button"
@@ -78,12 +80,13 @@
                                 {% endif %}
                             </div>
                         </div>
+                        <small class="text-muted">{{ local_time(comment.created_date) }}</small>
                         {% endfor %}
                     </div>
                 </div>
             </div>
 
-        <form class="input-group mb-3" method="post" action="/create_comment/{{post.id}}" onclick="updateComments({{post.id}})">
+        <form class="input-group mb-1" method="post" action="/create_comment/{{post.id}}" onclick="updateComments({{post.id}})">
             <input type="text" id="text" name="text" class="form-control" placeholder="Напишите что-нибудь!"/>
             <button type="submit" class="btn btn-primary">Комментировать</button>
         </form>
@@ -93,6 +96,8 @@
         </div>
     </div>
     <br/>
+    <div class="d-flex justify-content-center">
     <a href="/home#{{post.id}}" class="btn btn-secondary">Назад</a>
+        </div>
 </div>
 {% endblock %}

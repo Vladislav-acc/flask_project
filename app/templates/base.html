@@ -7,6 +7,9 @@
           rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
           crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='styles.css') }}"
+            rel="stylesheet"
+            type="text/css">
     <script src="https://kit.fontawesome.com/970a3685a6.js"
             crossorigin="anonymous"></script>
 
@@ -16,7 +19,7 @@
     <div class="d-flex flex-column overflow-hidden min-vh-100 vh-100">
     <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3" style="background-color: #6f42c1;">
-      <div class="container-fluid">
+      <div class="container-fluid" >
           <a class="navbar-brand" href="/hello">
           <img src="/static/images/93zGbFI-sakura-blossom-alice-vector.svg" alt="" width="30" height="30" class="d-inline-block align-text-top">Записки королёвского япониста
           </a>
@@ -72,7 +75,8 @@
     </main>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top flex-grow-0 sticky-bottom bg-dark">
-        <div class="col-md-4 d-flex align-items-center">
+        <div
+        <div class="col-md-4 d-flex align-items-center" >
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <img src="/static/images/009.svg" alt="" width="30" height="30">
           </a>

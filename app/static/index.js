@@ -28,8 +28,19 @@ function showComments(postId) {
     }
 }
 
-function updateComments(postId){
-    const comments = document.getElementById(`comments-${postId}`)
-    console.log(comments)
 
-}
+function answerComments(commentUser){
+    let inputComment = document.getElementById(`text`)
+    console.log(inputComment.defaultValue)
+    inputComment.defaultValue = commentUser+', '
+    inputComment.focus();
+    console.log(inputComment.value.length)
+    inputComment.selectionStart = inputComment.value.length;
+    }
+
+
+/*let btn = document.getElementById("answer");
+btn.addEventListener("click", function(commentUser) {
+	//Do something here
+	console.log('yyy')
+}, false);*/

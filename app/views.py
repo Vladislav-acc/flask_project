@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from . import db
 from .models import Post, User, Comment, Like
 from sqlalchemy import desc, func
-from .forms import EditProfileForm, PostForm
+from .forms import EditProfileForm, PostForm, CommentForm
 from datetime import datetime
 from os import path, rename
 from PIL import Image
@@ -36,14 +36,12 @@ def create_post():
     form = PostForm()
     if form.validate_on_submit():
         text = form.text.data
-        if not text:
-            flash('Введите текст.', category='error')
-        else:
-            post = Post(text=text, author=current_user.id)
-            db.session.add(post)
-            db.session.commit()
-            flash('Пост создан!', category='success')
-            return redirect(url_for('views.home'))
+
+        post = Post(text=text, author=current_user.id)
+        db.session.add(post)
+        db.session.commit()
+        flash('Пост создан!', category='success')
+        return redirect(url_for('views.home'))
 
     return render_template('create_post.html', user=current_user, form=form)
 
@@ -83,19 +81,17 @@ def delete_post(id):
 @login_required
 def create_comment(post_id):
 
-    text = request.form.get('text')
-
-    if not text:
-        flash('Комментарий не может быть пустым!', category='error')
-    else:
-        post = Post.query.filter_by(id=post_id)
-        if post:
+    form = CommentForm()
+    post = Post.query.filter_by(id=post_id)
+    if post:
+        if form.validate_on_submit():
+            text = form.text.data
             comment = Comment(text=text, author=current_user.id, post_id=post_id)
             db.session.add(comment)
             db.session.commit()
-        else:
-            flash('Пост не существует!', category='error')
-    return redirect(url_for('views.post', post_id=post_id))
+    else:
+        flash('Пост не существует!', category='error')
+    return redirect(url_for('views.post', post_id=post_id, form=form))
 
 
 @views.route('/post/<post_id>/delete_comment/<comment_id>')
@@ -201,7 +197,8 @@ def edit_profile(username):
 @login_required
 def post(post_id):
     post = Post.query.filter_by(id=post_id).first()
+    form = CommentForm()
     if not post:
         flash('Пост не найден!', category='error')
     else:
-        return render_template('post.html', post=post, user=current_user)
+        return render_template('post.html', post=post, user=current_user, form=form)

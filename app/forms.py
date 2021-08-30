@@ -60,7 +60,10 @@ class PostForm(FlaskForm):
     submit = SubmitField('Добавить')
 
 
-"""class EditPostForm(FlaskForm):
-    text = TextAreaField('Пост', validators=[DataRequired()], render_kw={'cols': "50", 'rows': "5"})
-    submit = SubmitField('Добавить')"""
+class CommentForm(FlaskForm):
+    text = TextAreaField('Пост', validators=[DataRequired()], render_kw={"placeholder": "Напишите что-нибудь!",
+                                                                         'cols': "50", 'rows': "2",
+                                                                         'id': 'text',
+                                                                         'class': 'form-control'})
+    submit = SubmitField('Добавить')
 

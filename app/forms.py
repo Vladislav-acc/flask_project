@@ -22,12 +22,12 @@ class SignUpForm(FlaskForm):
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
-            raise ValidationError('Please use a different username.')
+            raise ValidationError('Пожалуйста, используйте другой username.')
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError('Please use a different email address.')
+            raise ValidationError('Пожалуйста, используйте другой почтовый адрес.')
 
 
 class EditProfileForm(FlaskForm):
@@ -67,3 +67,19 @@ class CommentForm(FlaskForm):
                                                                          'class': 'form-control'})
     submit = SubmitField('Добавить')
 
+
+class RequestResetForm(FlaskForm):
+    email = StringField('Почта', validators=[DataRequired(), Email()])
+    submit = SubmitField('Запросить сброс пароля')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError('Аккаунт с такой почтой не существует.')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    confirm_password = PasswordField(
+        'Повторный пароль', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Сменить пароль')

@@ -1,10 +1,12 @@
 from . import db
+from flask import current_app
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 from datetime import datetime
 from hashlib import md5
 from tzlocal import get_localzone
 import pytz
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 
 class User(db.Model, UserMixin):
@@ -39,6 +41,18 @@ class User(db.Model, UserMixin):
             digest = md5(self.email.lower().encode('utf-8')).hexdigest()
             return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 
+    def get_reset_token(self, expires_sec=600):
+        s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
+        return s.dumps({'user_id': self.id}).decode('utf-8')
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(current_app.config['SECRET_KEY'])
+        try:
+            user_id = s.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

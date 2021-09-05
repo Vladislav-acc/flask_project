@@ -103,7 +103,9 @@
     </div>
     <br/>
     <div class="d-flex justify-content-center">
-    <a href="/home#{{post.id}}" class="btn btn-secondary">Назад</a>
+    <a href="/home?page={{page}}#{{post.id}}" class="btn btn-secondary">Назад</a>
+        {{ page }}
+    <button onclick="history.back()">Назад</button>
         </div>
 </div>
 {% endblock %}

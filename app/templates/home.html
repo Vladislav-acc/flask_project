@@ -46,7 +46,7 @@
             <div class="card-text" style="height: 50px; overflow: hidden;">{{ post.text }}</div>
             <br/>
             <p class="card-text">
-                <a role="button" href="/post/{{post.id}}" class="btn btn-sm btn-outline-primary">Просмотреть</a>
+                <a role="button" href="{{url_for('views.post', post_id=post.id, page=posts.page)}}" class="btn btn-sm btn-outline-primary">Просмотреть</a>
                 {% if post.comments|length > 0 %}
                     <button data-bs-toggle="collapse" role="button"
                        class="btn btn-sm btn-outline-primary" disabled>

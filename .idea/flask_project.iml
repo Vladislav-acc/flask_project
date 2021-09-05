@@ -7,7 +7,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="microblog" />
-    <orderEntry type="module" module-name="webtraining" />
-    <orderEntry type="module" module-name="flask_blog" />
+    <orderEntry type="module" module-name="price_tracker" />
   </component>
 </module>

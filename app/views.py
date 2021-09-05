@@ -193,12 +193,12 @@ def edit_profile(username):
     return render_template('edit_profile.html', user=current_user, form=form)
 
 
-@views.route('/post/<post_id>')
+@views.route('<page>/post/<post_id>')
 @login_required
-def post(post_id):
+def post(post_id, page):
     post = Post.query.filter_by(id=post_id).first()
     form = CommentForm()
     if not post:
         flash('Пост не найден!', category='error')
     else:
-        return render_template('post.html', post=post, user=current_user, form=form)
+        return render_template('post.html', post=post, user=current_user, form=form, page=page)

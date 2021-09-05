@@ -25,6 +25,7 @@
           {{ form.remember_me() }} {{ form.remember_me.label }}
       </div>
       <button type="submit" class="btn btn-primary">Войти</button>
+      <a href="{{ url_for('auth.reset_request') }}" class="btn btn-sm ">Забыли пароль?</a>
     </form>
         </div>
         </div>

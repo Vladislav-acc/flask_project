@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/app/templates/reset_token.html">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/app/views.py">
           <value>
             <Attribute>

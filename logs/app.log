@@ -1,0 +1,82 @@
+2021-09-04 23:02:58,972 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 23:05:55,884 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 23:14:34,775 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 23:15:24,343 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-06 18:56:57,420 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 18:57:28,257 ERROR: Exception on /reset_password [POST] [in /Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/vlados/PycharmProject/flask_project/app/auth.py", line 86, in reset_request
+    send_reset_email(user)
+  File "/Users/vlados/PycharmProject/flask_project/app/auth.py", line 74, in send_reset_email
+    with current_app.open_resource('/static/images/1.jpg') as something:
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/helpers.py", line 1114, in open_resource
+    return open(os.path.join(self.root_path, resource), mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/static/images/1.jpg'
+2021-09-06 18:59:12,729 ERROR: Exception on /reset_password [POST] [in /Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/vlados/PycharmProject/flask_project/app/auth.py", line 86, in reset_request
+    send_reset_email(user)
+  File "/Users/vlados/PycharmProject/flask_project/app/auth.py", line 74, in send_reset_email
+    with current_app.open_resource('app/static/images/1.jpg') as something:
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/helpers.py", line 1114, in open_resource
+    return open(os.path.join(self.root_path, resource), mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/static/images/1.jpg'
+2021-09-06 18:59:40,516 ERROR: Exception on /reset_password [POST] [in /Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/vlados/PycharmProject/flask_project/app/auth.py", line 86, in reset_request
+    send_reset_email(user)
+  File "/Users/vlados/PycharmProject/flask_project/app/auth.py", line 74, in send_reset_email
+    with current_app.open_resource('app/static/images/1.jpg') as something:
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/helpers.py", line 1114, in open_resource
+    return open(os.path.join(self.root_path, resource), mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/static/images/1.jpg'
+2021-09-06 19:00:15,820 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:00:16,499 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:00:55,316 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:02:56,482 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:04:04,210 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:04:51,598 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:04:52,306 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:06:54,670 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:06:55,418 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:08:30,857 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:11:36,541 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:12:57,569 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:13:53,825 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-06 19:14:37,043 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]

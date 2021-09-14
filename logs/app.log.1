@@ -1,0 +1,109 @@
+2021-09-04 16:51:53,971 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 16:51:54,705 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 16:54:44,179 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 16:57:33,984 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:01:13,961 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:02:25,010 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:02:25,775 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:02:55,335 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:03:10,509 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:05:31,790 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:06:00,850 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:06:02,638 ERROR: Exception on /旅人/profile [GET] [in /Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/vlados/PycharmProject/flask_project/app/views.py", line 142, in user_profile
+    return render_template('profile.html')
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/vlados/PycharmProject/flask_project/app/templates/profile.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/vlados/PycharmProject/flask_project/app/templates/base.html", line 34, in top-level template code
+    {% if user.is_authenticated %}
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2021-09-04 17:06:19,145 ERROR: Exception on /旅人/profile [GET] [in /Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/vlados/PycharmProject/flask_project/app/views.py", line 142, in user_profile
+    return render_template('profile.html')
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/vlados/PycharmProject/flask_project/app/templates/profile.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/vlados/PycharmProject/flask_project/app/templates/base.html", line 34, in top-level template code
+    {% if user.is_authenticated %}
+  File "/Users/vlados/PycharmProject/flask_project/venv/lib/python3.9/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2021-09-04 17:06:58,368 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:06:59,092 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 17:12:47,591 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:55]
+2021-09-04 21:35:37,673 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 21:35:38,388 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 21:39:14,722 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 21:44:08,954 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:09:24,631 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:13:39,085 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:15:43,218 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:16:45,813 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:17:27,841 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:19:16,595 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:25:40,217 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:27:50,431 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:29:52,494 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:35:40,115 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:40:56,073 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:43:13,432 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:44:38,560 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:45:56,510 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:63]
+2021-09-04 22:47:54,669 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 22:47:55,377 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 22:50:12,445 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 22:50:13,193 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 23:01:06,032 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 23:01:36,665 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]
+2021-09-04 23:02:57,603 INFO: Microblog startup [in /Users/vlados/PycharmProject/flask_project/app/__init__.py:64]

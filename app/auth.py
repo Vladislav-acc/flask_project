@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, current_app
 from flask_login import login_required, current_user, login_user, logout_user
 from . import db, mail
 from .models import User
@@ -66,12 +66,14 @@ def signup():
 def send_reset_email(user):
     token = user.get_reset_token()
     msg = Message('Password Reset Request',
-                  sender='noreply@demo.com',
+
                   recipients=[user.email])
     msg.body = f'''Для сброса пароля пройдите по ссылке:
     {url_for('auth.reset_token', token=token, _external=True)}
     Если Вы не посылали этот запрос, то игнорируйте сообщение.
     '''
+    with current_app.open_resource('static/images/1.jpg') as something:
+        msg.attach('static/images/1.jpg', 'image/jpeg', something.read())
     mail.send(msg)
 
 
